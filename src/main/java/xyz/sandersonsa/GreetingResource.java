@@ -1,5 +1,6 @@
 package xyz.sandersonsa;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -28,7 +29,7 @@ public class GreetingResource {
 
         // Iterate over the cookies and print their values
         cookies.forEach((name, cookie) -> {
-        System.out.println("Cookie Name: " + name + " | Value: " + cookie.getValue());
+            System.out.println("Cookie Name: " + name + " | Value: " + cookie.getValue());
         });
                 
         Optional<String> podName = Optional.ofNullable(System.getenv("HOSTNAME"));
@@ -36,6 +37,6 @@ public class GreetingResource {
             System.out.println("Pod Hostname: " + podName.get());
             return "Hello from Quarkus REST :: " + podName.get();
         }   
-        return "Hello from Quarkus REST";
+        return "Hello from Quarkus REST - " + LocalDateTime.now().toString();
     }
 }
