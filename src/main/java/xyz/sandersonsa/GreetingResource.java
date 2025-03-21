@@ -15,7 +15,8 @@ public class GreetingResource {
     public String hello() {
         Optional<String> podName = Optional.ofNullable(System.getenv("HOSTNAME"));
         if (podName.isPresent()) {
-            System.out.println("Pod Hostname: " + podName.get());    
+            System.out.println("Pod Hostname: " + podName.get());
+            return "Hello from Quarkus REST :: " + podName.get();
         }        
         return "Hello from Quarkus REST";
     }
